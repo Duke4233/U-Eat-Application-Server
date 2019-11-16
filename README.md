@@ -1,2 +1,3 @@
 # U-Eat-Server
-Server setup and management modules.
+Node.js + Express server setup and management modules.
+## Dependencies:
