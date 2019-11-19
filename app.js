@@ -9,12 +9,14 @@ var loginRouter = require('./routes/login');
 var searchRouter = require('./routes/search');
 var restaurantsRouter = require('./routes/restaurants');
 var restaurantRouter = require('./routes/restaurant');
+var handlebars = require('hbs');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+handlebars.registerPartials('./views/partials');
 
 app.use(logger('dev'));
 app.use(express.json());
