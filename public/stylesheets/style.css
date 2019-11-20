@@ -1,8 +1,46 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.navbar-collapse {
+  width: fit-content;
+}
+.navbar-centerpiece {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.dropdown-menu {
+  -webkit-transition: all .5s ease-out;
+  transition: all .5s ease-out;
+  transform: rotateX(90deg);
+  transform-origin: top;
+  opacity: 0;
+  display: block;
+  width: 100%;
+  border: none;
+}
+.show .dropdown-menu {
+  opacity: 1;
+  transform: rotateX(0deg);
+  transform-origin: top;
+  width: 100%;
+  border: none;
+}
+
+.nav-item .dropdown-menu {
+  font-size: large;
+  width: fit-content;
+}
+
+.oi {
+  transform:scale(2.0,2.0);
+  -ms-transform:scale(2.0,2.0); /* IE 9 */
+  -moz-transform:scale(2.0,2.0); /* Firefox */
+  -webkit-transform:scale(2.0,2.0); /* Safari and Chrome */
+  -o-transform:scale(2.0,2.0); /* Opera */
 }
