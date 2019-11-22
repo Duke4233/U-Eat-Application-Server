@@ -13,6 +13,17 @@ var handlebars = require('hbs');
 
 var app = express();
 
+var mysql = require('mysql');
+
+var pool = mysql.createPool({
+  connectionLimit : 10,
+  host            : 'oniddb.cws.oregonstate.edu',
+  user            : 'mccoymil-db',
+  password        : 'JiqD9oBDw6BI494B',
+  database        : 'mccoymil-db'
+});
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
