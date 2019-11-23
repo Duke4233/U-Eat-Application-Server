@@ -3,28 +3,17 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var handlebars = require('hbs');
 
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
 var searchRouter = require('./routes/search');
 var restaurantsRouter = require('./routes/restaurants');
 var restaurantRouter = require('./routes/restaurant');
-var handlebars = require('hbs');
 
 var app = express();
 
-//TODO: in production environment this setup should be moved to a private .env setup.
-var mysql = require('mysql');
-var pool = mysql.createPool({
-  connectionLimit : 10,
-  host            : 'oniddb.cws.oregonstate.edu',
-  user            : 'mccoymil-db',
-  password        : 'JiqD9oBDw6BI494B',
-  database        : 'mccoymil-db'
-});
-
-
-// view engine setup
+// Handlebars view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 handlebars.registerPartials('./views/partials');
