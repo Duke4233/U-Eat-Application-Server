@@ -13,8 +13,8 @@ var handlebars = require('hbs');
 
 var app = express();
 
+//TODO: in production environment this setup should be moved to a private .env setup.
 var mysql = require('mysql');
-
 var pool = mysql.createPool({
   connectionLimit : 10,
   host            : 'oniddb.cws.oregonstate.edu',
