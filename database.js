@@ -6,7 +6,7 @@ var db;
 function connectSQL() {
     if (!db) {
         db = sql.createPool(settings);
-        db.connect(function(err) {
+        db.getConnection(function(err) {
             if(!err) {
                 console.log('SQL connection established.'); }
             else {
