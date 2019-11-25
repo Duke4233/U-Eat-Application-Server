@@ -1,20 +1,8 @@
 //TODO: in production environment dbSettings should be moved to a private .env setup file for security.
 var sql = require('mysql');
 var settings = require('./dbConfig_mccoymil');
-var db;
+//var settings = require('./dbConfig_mcdade_local');
 
-function connectSQL() {
-    if (!db) {
-        db = sql.createPool(settings);
-        db.getConnection(function(err) {
-            if(!err) {
-                console.log('SQL connection established.'); }
-            else {
-                console.log('Error connecting SQL');
-            }
-        });
-    }
-    return db;
-}
+var pool = sql.createPool(settings);
 
-module.exports = connectSQL();
+module.exports = pool;
