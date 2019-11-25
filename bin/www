@@ -3,6 +3,7 @@
 /**
  * Module dependencies.
  */
+require('dotenv').config();
 var app = require('../app');
 var debug = require('debug')('361project:server');
 var http = require('http');
@@ -10,7 +11,7 @@ var http = require('http');
 /**
  * Get port from environment and store in Express.
  */
-var port = normalizePort(process.argv[process.argv.length - 1] || '3000');
+var port = normalizePort(process.env.PORT ||'3000');
 app.set('port', port);
 
 /**
