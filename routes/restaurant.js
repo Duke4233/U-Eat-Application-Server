@@ -11,4 +11,28 @@ router.get('/', function(req, res, next) {
     }
 });
 
+
+router.post('/', function(req, res) {
+    if (req.session.loggedin){
+        const name = req.body.name;;
+        if(name) {
+            db.query('select * from restaurant where resname = ?',
+                [name],
+                function(err, results) {
+                    if(results.length > 0) {
+                        res.send(JSON.stringify({"status": 200, "error": null, "response": results}))
+                    } else {
+                        res.render('/', { title: 'No Restaurant by such name'});
+                    }
+                });
+        } else {
+            res.render('/', { title: 'Please enter name'});
+        }
+    }
+    else {
+        res.redirect('/login');
+    }
+});
+
+
 module.exports = router;
