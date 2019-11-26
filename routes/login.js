@@ -11,7 +11,7 @@ router.post('/', function(req, res) {
     const email = req.body.email;
     const password = req.body.password;
     if(email && password) {
-        db.query('select * from accounts where email = ? and password = ?',
+        db.query('select * from account where email = ? and password = ?',
             [email, password],
             function(err, results, fields) {
                 if(results.length > 0) {
