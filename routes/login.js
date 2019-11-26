@@ -16,7 +16,10 @@ router.post('/', function(req, res) {
             function(err, results, fields) {
                 if(results.length > 0) {
                     req.session.loggedin = true;
-                    req.session.email = email;
+                    req.session.userid = results[0].id;
+                    req.session.username = results[0].username;
+                    console.log(results);
+                    console.log(fields);
                     res.redirect('/');
                 } else {
                     res.render('login', { title: 'Incorrect Email or Password'});
@@ -25,6 +28,11 @@ router.post('/', function(req, res) {
     } else {
         res.render('login', { title: 'Enter Email and Password'});
     }
+});
+
+router.get('/logout', function (req, res) {
+    req.session.destroy();
+    res.redirect('/login');
 });
 
 module.exports = router;
