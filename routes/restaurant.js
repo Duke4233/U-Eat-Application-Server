@@ -16,7 +16,7 @@ router.post('/', function(req, res) {
     if (req.session.loggedin){
         const name = req.body.name;;
         if(name) {
-            db.query('select * from restaurants where resname = ?',
+            db.query('select * from restaurant where resname = ?',
                 [name],
                 function(err, results) {
                     if(results.length > 0) {
