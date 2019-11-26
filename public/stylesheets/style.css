@@ -1,10 +1,10 @@
 body {
 }
-
 a {
   color: #00B7FF;
 }
 
+/*--------------------NAVBAR--------------------*/
 .navbar-collapse {
   width: fit-content;
 }
@@ -13,7 +13,6 @@ a {
   left: 50%;
   transform: translateX(-50%);
 }
-
 .dropdown-menu {
   -webkit-transition: all .5s ease-out;
   transition: all .5s ease-out;
@@ -31,12 +30,13 @@ a {
   width: 100%;
   border: none;
 }
-
 .nav-item .dropdown-menu {
   font-size: large;
   width: fit-content;
 }
+/*------------------END NAVBAR--------------------*/
 
+/*--------------------ICONS-----------------------*/
 .oi {
   transform:scale(2.0,2.0);
   -ms-transform:scale(2.0,2.0); /* IE 9 */
@@ -44,28 +44,25 @@ a {
   -webkit-transform:scale(2.0,2.0); /* Safari and Chrome */
   -o-transform:scale(2.0,2.0); /* Opera */
 }
+/*-------------------END ICONS---------------------*/
 
-/*--------------LOGIN CSS--------------------------*/
+/*-------------------LOGIN CSS---------------------*/
 .card-signin {
   border: 0;
   border-radius: 1rem;
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
 }
-
 .card-signin .card-title {
   margin-bottom: 2rem;
   font-weight: 300;
   font-size: 1.5rem;
 }
-
 .card-signin .card-body {
   padding: 2rem;
 }
-
 .form-signin {
   width: 100%;
 }
-
 .form-signin .btn {
   font-size: 80%;
   border-radius: 5rem;
@@ -74,47 +71,39 @@ a {
   padding: 1rem;
   transition: all 0.2s;
 }
-
 .form-label-group {
   position: relative;
   margin-bottom: 1rem;
 }
-
 .form-label-group input {
   height: auto;
   min-height: 40px;
   border-radius: 2rem;
   text-align: center;
 }
-
 .form-label-group>input,
 .form-label-group>label {
   padding: var(--input-padding-y) var(--input-padding-x);
 }
-
 .form-label-group input:not(:placeholder-shown) {
   padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
   padding-bottom: calc(var(--input-padding-y) / 3);
 }
-
 .form-label-group input:not(:placeholder-shown)~label {
   padding-top: calc(var(--input-padding-y) / 3);
   padding-bottom: calc(var(--input-padding-y) / 3);
   font-size: 12px;
   color: #777;
 }
-
 .form-label-group input:focus::placeholder {
   color: transparent;
 }
-
 .btn-google {
   color: white;
   background-color: #ea4335;
 }
-
 .btn-facebook {
   color: white;
   background-color: #3b5998;
 }
-/*--------------LOGIN CSS--------------------------*/
+/*--------------------END LOGIN---------------------*/
