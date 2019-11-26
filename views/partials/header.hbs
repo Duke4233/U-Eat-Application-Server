@@ -9,12 +9,16 @@
                     <span class="oi oi-person"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown04">
-                    <a class="dropdown-item" href="/user/{{{userID}}}/orders">Past Orders</a>
-                    <a class="dropdown-item" href="/user/{{{userID}}}/favorites">Favorites</a>
+                    {{#if username}}
+                        <a class="dropdown-item" href="/user/{{userid}}">{{username}}</a>
+                        <div class="dropdown-divider"></div>
+                    {{/if}}
+                    <a class="dropdown-item" href="/user/{{userid}}/orders">Past Orders</a>
+                    <a class="dropdown-item" href="/user/{{userid}}/favorites">Favorites</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/user/{{{userID}}}/settings">Settings</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#" style="background-color: red"><strong>Make Logout Button</strong></a>
+                    <a class="dropdown-item" href="/login/logout" style="background-color: red"><strong>Logout Button</strong></a>
                 </div>
             </li>
             <li class="nav-item dropdown" style="padding-right: 20px">
@@ -22,7 +26,7 @@
                     <span class="oi oi-basket"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown04">
-                    <a class="dropdown-item" href="/user/{{{userID}}}/{{{currentOrderID}}}">Current Order Link</a>
+                    <a class="dropdown-item" href="/user/{{userid}}/{{{currentOrderID}}}">Current Order Link</a>
                     <a class="dropdown-item" href="#">Items: {{number_of_items}}</a>
                     <a class="dropdown-item" href="#">Total: ${{items_total}}</a>
                     <div class="dropdown-divider"></div>
@@ -31,5 +35,4 @@
             </li>
         </ul>
     </div>
-
 </nav>
