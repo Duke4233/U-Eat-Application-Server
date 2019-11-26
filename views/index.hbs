@@ -1,21 +1,15 @@
 <div class="jumbotron text-center">
-    <h1>Food Carousel</h1>
-    <p>{{title}}</p>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <h3>Column 1</h3>
-            <p>Lorem ipsum dolor..</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 2</h3>
-            <p>Lorem ipsum dolor..</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 3</h3>
-            <p>Lorem ipsum dolor..</p>
+    <div id="carousel-yummy" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="images/easy-pepperoni-pizza-lead-4.jpg" alt="pepperoni pizza">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="images/20150909-nicoise-salad-vicky-wasik-9-1500x1125.jpg" alt="Second slide">
+            </div>
         </div>
     </div>
 </div>
+
+{{>searchName}}
+{{>searchMap}}
