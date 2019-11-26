@@ -10,7 +10,7 @@ var db = require('../database');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if(req.session.loggedin) {
-    res.render('index', { title: 'Yum!', username: req.session.username, userid: req.session.userid });
+    res.render('index', { title: 'Yum!', loggedin: req.session.loggedin, username: req.session.username, userid: req.session.userid });
   } else {
     res.redirect('/login');
   }
