@@ -4,7 +4,11 @@ var db = require('../database');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
+    if(req.session.loggedin) {
+        res.render('search', { title: 'Search', email: req.session.email });
+    } else {
+        res.redirect('/login');
+    }
 });
 
 module.exports = router;

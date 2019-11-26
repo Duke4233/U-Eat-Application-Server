@@ -2,13 +2,18 @@ var express = require('express');
 var router = express.Router();
 var db = require('../database');
 
+/*db.query("SELECT * from menu_item", function (err, result) {
+        if(err) throw err;
+        console.log("result:" + result);
+    });*/
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  db.query("SELECT * from menu_item", function (err, result) {
-    if(err) throw err;
-    console.log("result:" + result);
-  });
-  res.render('index', { title: 'Express' });
+  if(req.session.loggedin) {
+    res.render('index', { title: 'Yum!', email: req.session.email });
+  } else {
+    res.redirect('/login');
+  }
 });
 
 module.exports = router;

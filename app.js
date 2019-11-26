@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var session = require('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -8,7 +9,6 @@ var handlebars = require('hbs');
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
 var searchRouter = require('./routes/search');
-var restaurantsRouter = require('./routes/restaurants');
 var restaurantRouter = require('./routes/restaurant');
 
 var app = express();
@@ -24,11 +24,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'lib')));
+//Use session to maintain user sessions.
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}));
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/search', searchRouter);
-app.use('/restaurants', restaurantsRouter);
 app.use('/restaurant', restaurantRouter);
 
 // catch 404 and forward to error handler
