@@ -19,14 +19,14 @@ router.post('/', function(req, res) {
             db.query('select * from restaurant where resname = ?',
                 [name],
                 function(err, results) {
-                    if(results.length > 0) {
+                    if(results) {
                         res.send(JSON.stringify({"status": 200, "error": null, "response": results}))
                     } else {
-                        res.render('/', { title: 'No Restaurant by such name'});
+                        res.render('restaurant', { title: 'No Restaurant by such name'});
                     }
                 });
         } else {
-            res.render('/', { title: 'Please enter name'});
+            res.render('restaurant', { title: 'Please enter name'});
         }
     }
     else {
