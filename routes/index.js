@@ -9,7 +9,7 @@ var db = require('../database');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  if(req.session.loggedin) {
+  if(true) {
     res.render('index', {
       title: 'Yum!',
       loggedin: req.session.loggedin,

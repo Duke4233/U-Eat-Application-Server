@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/', function(req, res) {
-    if (req.session.loggedin){
+    if (true){
         const name = req.body.name;;
         if(name) {
             db.query('select * from restaurant where resname = ?',
