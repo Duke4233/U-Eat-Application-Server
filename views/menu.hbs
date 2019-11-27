@@ -1,0 +1,21 @@
+<div class="container">
+	<h3>Restaurant Menu</h3>
+	
+	<br />
+	
+	<table id="menu">
+		<thead>
+			<th>Name</th>
+			<th>Price</th>
+		<thead>
+		
+		<tbody>
+			{{#each menu_item}}
+				<tr class="menu_item-row">
+					<td>{{Name}}</td>
+					<td>${{Price}}</td>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>

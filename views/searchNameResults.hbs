@@ -1,0 +1,17 @@
+<div class="container">
+	<table id="search-results">
+		<thead>
+			<th>Name</th>
+			<th>Address</th>
+		<thead>
+		
+		<tbody>
+			{{#each restaurant}}
+				<tr class="restaurant-row">
+					<td><a href="/restaurant/{{resname}}">{{resname}}</a></td>
+					<td>{{street}}, {{city}}, {{state}}, {{zip}}</td>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</div>
