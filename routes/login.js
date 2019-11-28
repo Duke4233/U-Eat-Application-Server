@@ -18,18 +18,15 @@ router.post('/', function(req, res)
 	
     if(email && password)
 	{
-        db.query('select * from account where email = ? and password = ?', [email, password], function(err, results, fields)
+        db.query('SELECT * FROM account WHERE email = ? and password = ?', [email, password], function(err, results, fields)
 		{
 			if(results.length > 0)
 			{
 				req.session.loggedin = true;
 				req.session.userid = results[0].id;
 				req.session.username = results[0].username;
-				console.log(results);
-				console.log(fields);
 				res.redirect('/');
-			}
-			else
+			} else
 			{
 				res.render('login',
 				{

@@ -18,7 +18,12 @@ router.get('/', function(req, res, next)
         res.redirect('/login');
     }
 });
-
+/* GET displays restaurant info */
+router.get('/restaurant/:resname', function(req, res)
+{
+	locals = {};
+	getRestaurant(res, locals, req.params.resname);
+});
 
 router.post('/', function(req, res)
 {
@@ -28,7 +33,7 @@ router.post('/', function(req, res)
 		
         if(name)
 		{
-            db.query('select * from restaurant where resname = ?', [name], function(err, results)
+            db.query('select * from restaurant where name = ?', [name], function(err, results)
 			{
 				if(results)
 				{
@@ -51,5 +56,19 @@ router.post('/', function(req, res)
     }
 });
 
+function getRestaurant(res, locals, resname)
+{
+	db.query("SELECT menu_item.name, menu_item.price FROM restaurant INNER JOIN menu_item ON restaurant.id = menu_item.restaurant_id WHERE restaurant.name = ?", [resname], function(error, results, fields)
+	{
+		if (error)
+		{
+			console.log(JSON.stringify(error)); // insert however errors are handled
+			res.end();
+		}
+
+		locals.menu_item = results;
+		res.render('menu', locals);
+	});
+}
 
 module.exports = router;

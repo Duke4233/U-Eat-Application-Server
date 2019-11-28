@@ -1,17 +1,17 @@
-<div class="container">
-	<table id="search-results">
-		<thead>
-			<th>Name</th>
-			<th>Address</th>
-		<thead>
-		
-		<tbody>
-			{{#each restaurant}}
-				<tr class="restaurant-row">
-					<td><a href="/restaurant/{{resname}}">{{resname}}</a></td>
-					<td>{{street}}, {{city}}, {{state}}, {{zip}}</td>
-				</tr>
-			{{/each}}
-		</tbody>
-	</table>
+<div class="container search-results">
+    <div class="row search-card">
+        <div class="col-sm-10 mx-auto">
+            <div class="card search-card text-center">
+                <h3>{{title}}</h3>
+            </div>
+        </div>
+        {{#each restaurant}}
+            <div class="col-sm-10 mx-auto">
+                <div class="card search-card">
+                    <a href="/restaurant/{{id}}" class="restaurant-label"><h4>{{name}}</h4></a>
+                    <p>{{street1}}, {{city}}, {{state}}, {{zip}}</p>
+                </div>
+            </div>
+        {{/each}}
+    </div>
 </div>

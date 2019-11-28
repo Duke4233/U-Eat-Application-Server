@@ -1,4 +1,3 @@
-//TODO: in production environment dbSettings should be moved to a private .env setup file for security.
 var sql = require('mysql');
 
 var pool = sql.createPool({

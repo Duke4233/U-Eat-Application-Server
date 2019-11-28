@@ -8,8 +8,8 @@ var handlebars = require('hbs');
 
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
-//var searchRouter = require('./routes/search');
-//var restaurantRouter = require('./routes/restaurant');
+var searchRouter = require('./routes/search');
+var restaurantRouter = require('./routes/restaurant');
 
 var app = express();
 
@@ -35,8 +35,8 @@ app.use(session
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
-//app.use('/search', searchRouter);
-//app.use('/restaurant', restaurantRouter);
+app.use('/search', searchRouter);
+app.use('/restaurant', restaurantRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next)

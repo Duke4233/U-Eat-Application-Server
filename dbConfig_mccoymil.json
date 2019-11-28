@@ -1,7 +1,0 @@
-{
-  "connectionLimit" : 10,
-  "host"            : "classmysql.engr.oregonstate.edu",
-  "user"            : "cs361_mccoymil",
-  "password"        : "5817",
-  "database"        : "cs361_mccoymil"
-}
