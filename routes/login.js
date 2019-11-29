@@ -26,17 +26,14 @@ router.post('/', function(req, res)
 				req.session.userid = results[0].id;
 				req.session.username = results[0].username;
 				res.redirect('/');
-			} else
-			{
+			} else {
 				res.render('login',
 				{
 					title: 'Incorrect Email or Password'
 				});
 			}
         });
-    }
-	else
-	{
+    } else {
         res.render('login',
 		{
 			title: 'Enter Email and Password'

@@ -154,3 +154,12 @@ iframe {
   height: 35vh;
 }
 /*------------------END IFRAME CARDS------------------*/
+
+/*--------------------MENU CARDS---------------------*/
+.menu-item-image {
+  max-height: 15vh;
+}
+.restaurant-menu .card {
+  margin-bottom: 15px;
+}
+/*------------------END MENU CARDS------------------*/

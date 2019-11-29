@@ -8,7 +8,8 @@
         {{#each restaurant}}
             <div class="col-sm-10 mx-auto">
                 <div class="card search-card">
-                    <a href="/restaurant/{{name}}" class="restaurant-label"><h4>{{name}}</h4></a>
+                    <!--'id' is the correct attribute for the href bc it is the UNIQUE PRIMARY KEY for that table-->
+                    <a href="/restaurant/{{id}}" class="restaurant-label"><h4>{{name}}</h4></a>
                     <p>{{street1}}, {{city}}, {{state}}, {{zip}}</p>
                 </div>
             </div>

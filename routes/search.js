@@ -9,7 +9,6 @@ router.get('/name', function(req, res, next)
         //TODO: do we want this query to return all restaurant for an empty string or add an 'IS NOT NULL' condition so it returns nothing?
         db.query("SELECT id, name, street1, city, state, zip FROM restaurant WHERE name LIKE CONCAT('%', ?, '%')", [req.query.restaurantname], function(err, results, fields)
         {
-            console.log(results);
             if (results.length > 0)
             {
                 res.render('searchNameResults',
@@ -31,9 +30,7 @@ router.get('/name', function(req, res, next)
                     });
             }
         });
-    }
-    else
-    {
+    } else {
         res.redirect('/login');
     }
 });
@@ -43,9 +40,7 @@ router.get('/zip', function(req, res, next)
     if(req.session.loggedin)
     {
 
-    }
-    else
-    {
+    } else {
         res.redirect('/login');
     }
 });
