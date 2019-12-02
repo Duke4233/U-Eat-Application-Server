@@ -140,9 +140,11 @@ a {
   padding: 0px;
   margin-bottom: 5px;
 }
-
-.carousel-inner img {
+.carousel {
   height: 20vh;
+}
+.carousel-inner img {
+  width: inherit;
 }
 /*---------------END JUMBOTRON CAROUSEL----------------*/
 
