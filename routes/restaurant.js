@@ -30,4 +30,8 @@ router.get('/:resid', function(req, res, next)
     }
 });
 
+router.post('/:resid/review', function (req, res, next) {
+
+});
+
 module.exports = router;

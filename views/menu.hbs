@@ -2,30 +2,57 @@
     <div class="row search-card">
         <div class="col-sm-10 mx-auto">
             <div class="card search-card text-center">
-                <h3>{{title}} Menu</h3>
+                <h2>{{title}}</h2>
+            </div>
+
+            <ul class="nav nav-tabs bg-dark" id="restaurantTabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="menu-tab" data-toggle="tab" href="#menu" role="tab" aria-controls="menu" aria-selected="true">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reviews</a>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="restaurantTabsContent">
+                <div class="tab-pane fade show active" id="menu" role="tabpanel" aria-labelledby="menu-tab">
+                    {{#each menu_item}}
+                        <div class="row no-gutters align-items-center bg-light" style="margin-bottom: 10px">
+                            <div class="col-4">
+                                <img class="card-img menu-item-image" src="{{#if imageURL}}{{imageURL}}{{else}}/images/Logo.png{{/if}}" alt="...">
+                            </div>
+                            <div class="col-6">
+                                <div class="card-body">
+                                    <h3 class="card-title">{{name}}</h3>
+                                    <h3>${{price}}</h3>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="card-body">
+                                    <span class="oi oi-plus"></span>
+                                    <p></p>
+                                    <span class="oi oi-minus"></span>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+                <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                    {{#each menu_item}}
+                        <div class="row no-gutters align-items-center bg-light" style="margin-bottom: 10px">
+                            <div class="col-2">
+                                <div class="card-body">
+                                    <span class="oi oi-plus"></span>
+                                    <p></p>
+                                    <span class="oi oi-minus"></span>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+
+
             </div>
         </div>
-
-        {{#each menu_item}}
-            <div class="row no-gutters align-items-center bg-light" style="margin-bottom: 10px">
-                    <div class="col-4">
-                        <img class="card-img menu-item-image" src="{{#if imageURL}}{{imageURL}}{{else}}/images/Logo.png{{/if}}" alt="...">
-                    </div>
-                    <div class="col-6">
-                        <div class="card-body">
-                            <h3 class="card-title">{{name}}</h3>
-                            <h3>${{price}}</h3>
-                        </div>
-                    </div>
-
-                <div class="col-2">
-                    <div class="card-body">
-                        <span class="oi oi-plus"></span>
-                        <p></p>
-                        <span class="oi oi-minus"></span>
-                    </div>
-                </div>
-            </div>
-        {{/each}}
     </div>
 </div>
