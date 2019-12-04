@@ -10,8 +10,8 @@
                 <div class="card search-card">
                     <a href="/restaurant/{{id}}" class="restaurant-label"><h4>{{name}}</h4></a>
                     <p>{{street1}}, {{city}}, {{state}}, {{zip}}</p>
-                    <p id="latitude" style="display: none">{{lat}}</p>
-                    <p id="longitude" style="display: none">{{lng}}</p>
+                    <p id="latitude{{id}}" style="display: none">{{lat}}</p>
+                    <p id="longitude{{id}}" style="display: none">{{lng}}</p>
                 </div>
             </div>
         {{/each}}
@@ -23,8 +23,8 @@
 
 <script>
     // Initialize and add the map
-    var lat = $("#latitude").text();
-    var lng = $("#longitude").text();
+    var lat = {{restaurant.0.lat}}.text();
+    var lng = {{restaurant.0.lng}}.text();
     console.log(lat, lng);
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
