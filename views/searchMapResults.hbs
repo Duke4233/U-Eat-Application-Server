@@ -23,8 +23,8 @@
 
 <script>
     // Initialize and add the map
-    var lat = {{restaurant.0.lat}}.text();
-    var lng = {{restaurant.0.lng}}.text();
+    var lat = {{restaurant.0.lat}};
+    var lng = {{restaurant.0.lng}};
     console.log(lat, lng);
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -39,7 +39,7 @@
         var marker = new google.maps.Marker({
            position: {lat: lat, lng: lng},
             map: map,
-            title: {{name}},
+            title: '{{name}}',
         });
         {{/each}}
 
