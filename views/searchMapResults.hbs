@@ -35,9 +35,9 @@
         {{#each restaurant}}
             lat = parseFloat({{lat}});
             lng = parseFloat({{lng}});
-
+        console.log(lat, lng);
         var marker = new google.maps.Marker({
-           position: {lat: parseFloat(lat), lng: parseFloat(lng)},
+           position: {lat: lat, lng: lng},
             map: map,
             title: {{name}},
         });
