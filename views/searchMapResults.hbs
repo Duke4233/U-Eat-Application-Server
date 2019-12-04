@@ -47,7 +47,7 @@
                 content: contentstring{{id}}
             });
             marker{{id}}.addListener('click', function () {
-                infowindow{{id}}.open(map, marker);
+                infowindow{{id}}.open(map, marker{{id}});
             });
 
         {{/each}}
