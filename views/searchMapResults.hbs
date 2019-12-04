@@ -31,11 +31,17 @@
             center: {lat: parseFloat(lat), lng: parseFloat(lng)},
             zoom: 15
         });
+
+        {{#each restaurant}}
+            lat = parseFloat({{lat}});
+            lng = parseFloat({{lng}});
+
         var marker = new google.maps.Marker({
            position: {lat: parseFloat(lat), lng: parseFloat(lng)},
             map: map,
-            title: 'The Restaurant',
+            title: {{name}},
         });
+        {{/each}}
 
         var contentstring = '<div><h3>We should put a link here.</h3></div>';
         var infowindow = new google.maps.InfoWindow({
