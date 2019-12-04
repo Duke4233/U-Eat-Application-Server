@@ -8,33 +8,56 @@
         {{#each restaurant}}
             <div class="col-sm-10 mx-auto">
                 <div class="card search-card">
-                    <a href="/restaurant/resname?resname={{name}}" class="restaurant-label"><h4>{{name}}</h4></a>
+                    <a href="/restaurant/{{id}}" class="restaurant-label"><h4>{{name}}</h4></a>
                     <p>{{street1}}, {{city}}, {{state}}, {{zip}}</p>
+                    <p id="latitude" style="display: none">{{lat}}</p>
+                    <p id="longitude" style="display: none">{{lng}}</p>
                 </div>
             </div>
         {{/each}}
-        <div id="map"></div>
 
-        <script>
-            // Initialize and add the map
-            function initMap() {
-                // The location of resOne
-                var resOne = {lat: {{restaurant.0.lat}}, lng: {{restaurant.0.lng}}
-                }
-                // The map, centered at res
-                var map = new google.maps.Map(
-                        document.getElementById('map'), {zoom: 4, center: resOne});
-                // The marker, positioned at res
+        <div id="map" style="display: contents"></div>
 
-                {{#each restaurant}}
-                    resOne = {lat: {{lat}}, lng: {{lng}} };
-                    var marker = new google.maps.Marker({position: resOne, map: map});
-                {{/each}}
-            }
-        </script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key={{GMapsAPIKEY}}&callback=initMap">
+    </div>
+</div>
 
-        </script>
+<script>
+    // Initialize and add the map
+    var lat = $("#latitude").text();
+    var lng = $("#longitude").text();
+    console.log(lat, lng);
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: parseFloat(lat), lng: parseFloat(lng)},
+            zoom: 15
+        });
+        var marker = new google.maps.Marker({
+           position: {lat: parseFloat(lat), lng: parseFloat(lng)},
+            map: map,
+            title: 'The Restaurant',
+        });
 
-        </div>
-        </div>
+        var contentstring = 'We should put a link here.';
+        var infowindow = new google.maps.InfoWindow({
+            content: contentstring
+        });
+        marker.addListener('click', function () {
+           infowindow.open(map, marker);
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{GMapsAPIKEY}}&callback=initMap" async defer>
+
+
+
+<!--var resOne = {lat: {{restaurant.0.lat}}, lng: {{restaurant.0.lng}}-->
+<!--};-->
+<!--// The map, centered at res-->
+<!--var map = new google.maps.Map(-->
+<!--document.getElementById('map'), {zoom: 4, center: resOne});-->
+<!--// The marker, positioned at res-->
+
+<!--{{#each restaurant}}-->
+<!--    resOne = {lat: {{restaurant.0.lat}}, lng: {{restaurant.0.lng}} };-->
+<!--    var marker = new google.maps.Marker({position: resOne, map: map});-->
+<!--{{/each}}-->
