@@ -1,0 +1,40 @@
+<div class="container search-results">
+    <div class="row search-card">
+        <div class="col-sm-10 mx-auto">
+            <div class="card search-card text-center">
+                <h3>{{title}}</h3>
+            </div>
+        </div>
+        {{#each restaurant}}
+            <div class="col-sm-10 mx-auto">
+                <div class="card search-card">
+                    <a href="/restaurant/resname?resname={{name}}" class="restaurant-label"><h4>{{name}}</h4></a>
+                    <p>{{street1}}, {{city}}, {{state}}, {{zip}}</p>
+                </div>
+            </div>
+        {{/each}}
+        <div id="map"></div>
+
+        <script>
+            // Initialize and add the map
+            function initMap() {
+                // The location of resOne
+                var resOne = {lat: {{restaurant.0.lat}}, lng: {{restaurant.0.lng}}
+                }
+                // The map, centered at res
+                var map = new google.maps.Map(
+                        document.getElementById('map'), {zoom: 4, center: resOne});
+                // The marker, positioned at res
+
+                {{#each restaurant}}
+                    resOne = {lat: {{lat}}, lng: {{lng}} };
+                    var marker = new google.maps.Marker({position: resOne, map: map});
+                {{/each}}
+            }
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key={{GMapsAPIKEY}}&callback=initMap">
+
+        </script>
+
+        </div>
+        </div>

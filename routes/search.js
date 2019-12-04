@@ -35,11 +35,37 @@ router.get('/name', function(req, res, next)
     }
 });
 
-router.get('/zip', function(req, res, next)
+router.get('/map', function(req, res, next)
 {
     if(req.session.loggedin)
     {
+        // Ibrahim: req.query is new for me, I was taught req.params (which is the string following a colon in the url)
+        db.query("SELECT id, name, street1, city, state, zip, lat, lng FROM restaurant WHERE zip = ?", [req.query.searchzip], function(err, results, fields)
+        {
+            if (results.length > 0)
+            {
+                res.render('searchMapResults',
+                    {
+                        title: 'Your search results!',
+                        loggedin: req.session.loggedin,
+                        username: req.session.username,
+                        userid: req.session.userid,
+                        GMapsAPIKEY: process.env.GOOGLEMAPSAPIKEY,
+                        restaurant: results
+                    }
 
+                )
+            } else {
+                res.render('searchMapResults',
+                    {
+                        title: 'We didn\'t find that restaurant',
+                        loggedin: req.session.loggedin,
+                        username: req.session.username,
+                        userid: req.session.userid
+                        //This is when we would have reinstanced the search partial on the search results page.
+                    });
+            }
+        });
     } else {
         res.redirect('/login');
     }
