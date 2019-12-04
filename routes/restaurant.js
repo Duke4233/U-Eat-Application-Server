@@ -11,7 +11,7 @@ router.get('/:resid', function(req, res, next)
 		db.query("SELECT restaurant.name AS resname, restaurant.id AS resid, menu_item.imageURL, menu_item.name, menu_item.price " +
 			"FROM restaurant LEFT JOIN menu_item ON restaurant.id = menu_item.restaurant_id " +
 			"WHERE restaurant.id = ?;" +
-			"SELECT restaurant.name AS resname, restaurant.id AS resid,account.username, review.rating, review.review " +
+			"SELECT restaurant.name AS resname, restaurant.id AS resid, account.username, date_format(review.reviewdate, '%m/%d/%Y %T') as reviewdate, review.rating, review.review " +
 			"FROM restaurant JOIN review on restaurant.id = review.restaurant_id JOIN account on account.id = review.account_id " +
 			"WHERE restaurant.id = ?",
 			[req.params.resid, req.params.resid], function(error, results, fields)

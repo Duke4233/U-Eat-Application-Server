@@ -58,19 +58,19 @@
                         <div class="row no-gutters bg-light" style="margin-bottom: 10px">
                             <div class="col-5">
                                 <div class="card-body review-card">
-                                    <h4><span class="oi oi-person comment-person"><em>{{username}}</em></h4></span><span>Rating: {{rating}}/5</span>
+                                    <h4><span class="oi oi-person comment-person"><em>{{username}}</em></h4></span>
+                                    <span>Rating: {{rating}}/5</span>
+                                    <span style="font-size: x-small"><em>{{reviewdate}}</em></span>
                                 </div>
                             </div>
                             <div class="col-7">
                                 <div class="card-body review-card">
-                                    <p>"{{review}}"</p>
+                                    <p class="restaurantreviewtext">"{{review}}"</p>
                                 </div>
                             </div>
                         </div>
                     {{/each}}
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -82,11 +82,12 @@
     <div class="col-5">
         <div class="card-body review-card">
             <h4><span class="oi oi-person comment-person"><em id="usernametemplate">{{username}}</em></span></h4><span id="ratingtemplate">Rating: x/5</span>
+            <span id="reviewdatetemplate" style="font-size: x-small"><em>reviewdate</em></span>
         </div>
     </div>
     <div class="col-7">
         <div class="card-body review-card">
-            <p id="reviewtemplate">"review"</p>
+            <p class="restaurantreviewtext" id="reviewtemplate">"review"</p>
         </div>
     </div>
 </div>

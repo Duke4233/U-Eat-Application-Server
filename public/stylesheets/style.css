@@ -181,6 +181,9 @@ iframe {
 .form-row {
     place-content: center;
 }
+.restaurantreviewtext {
+    overflow-wrap: break-word;
+}
 /*------------STAR RATING CSS ADAPTED FROM TUTORIAL:---*/
 /*--------https://jsfiddle.net/user/leaverou/fiddles/ ----*/
 /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t
