@@ -6,7 +6,7 @@
             </div>
 
             <ul class="nav nav-tabs bg-dark" id="restaurantTabs" role="tablist">
-                <li class="nav-item">
+                <li class="nav-item" id="restauranticon" value="{{resid}}">
                     <a class="nav-link active" id="menu-tab" data-toggle="tab" href="#menu" role="tab" aria-controls="menu" aria-selected="true"><h4>Menu</h4></a>
                 </li>
                 <li class="nav-item">
@@ -38,14 +38,32 @@
                         </div>
                     {{/each}}
                 </div>
-                <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                <div class="tab-pane fade align-items-center" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                    <div class="row no-gutters bg-light" id="reviewformrow" style="margin-bottom: 10px">
+                        <div class="col-10">
+                            <div class="form card-body" id="reviewform">
+                                <fieldset class="rating">
+                                    <input type="radio" class="star-select" id="star5" name="rating" value="5" /><label for="star5" title="So Delicious">5 stars</label>
+                                    <input type="radio" class="star-select" id="star4" name="rating" value="4" /><label for="star4" title="Delicious">4 stars</label>
+                                    <input type="radio" class="star-select" id="star3" name="rating" value="3" /><label for="star3" title="Good">3 stars</label>
+                                    <input type="radio" class="star-select" id="star2" name="rating" value="2" /><label for="star2" title="Edible">2 stars</label>
+                                    <input type="radio" class="star-select" id="star1" name="rating" value="1" /><label for="star1" title="Stay Home">1 star</label>
+                                </fieldset>
+                                <textarea class="form-control"  id="reviewtext" placeholder="Leave a review!" row="3"></textarea>
+                                <input type="submit" id="reviewformsubmit" value="Submit">
+                            </div>
+                        </div>
+                    </div>
                     {{#each review}}
                         <div class="row no-gutters bg-light" style="margin-bottom: 10px">
-                            <div class="col-10">
-                                <div class="card-body">
-                                    {{username}}
-                                    {{rating}}
-                                    {{review}}
+                            <div class="col-5">
+                                <div class="card-body review-card">
+                                    <h4><span class="oi oi-person comment-person"><em>{{username}}</em></h4></span><span>Rating: {{rating}}/5</span>
+                                </div>
+                            </div>
+                            <div class="col-7">
+                                <div class="card-body review-card">
+                                    <p>"{{review}}"</p>
                                 </div>
                             </div>
                         </div>
@@ -54,6 +72,21 @@
 
 
             </div>
+        </div>
+    </div>
+</div>
+
+<script src="/javascripts/client_menu.js"></script>
+
+<div class="row no-gutters bg-light" id="reviewcardtemplate" style="margin-bottom: 10px; display: none">
+    <div class="col-5">
+        <div class="card-body review-card">
+            <h4><span class="oi oi-person comment-person"><em id="usernametemplate">{{username}}</em></span></h4><span id="ratingtemplate">Rating: x/5</span>
+        </div>
+    </div>
+    <div class="col-7">
+        <div class="card-body review-card">
+            <p id="reviewtemplate">"review"</p>
         </div>
     </div>
 </div>
