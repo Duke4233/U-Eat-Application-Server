@@ -44,7 +44,7 @@
 
             var contentstring{{id}} = '<div><h3>{{name}}</h3></div>';
             var infowindow{{id}} = new google.maps.InfoWindow({
-                content: contentstring
+                content: contentstring{{id}}
             });
             marker{{id}}.addListener('click', function () {
                 infowindow{{id}}.open(map, marker);
