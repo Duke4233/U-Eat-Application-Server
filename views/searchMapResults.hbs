@@ -41,15 +41,18 @@
             map: map,
             title: '{{name}}',
         });
+
+            var contentstring = '<div><h3>{{name}}</h3></div>';
+            var infowindow = new google.maps.InfoWindow({
+                content: contentstring
+            });
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
+
         {{/each}}
 
-        var contentstring = '<div><h3>We should put a link here.</h3></div>';
-        var infowindow = new google.maps.InfoWindow({
-            content: contentstring
-        });
-        marker.addListener('click', function () {
-           infowindow.open(map, marker);
-        });
+
     }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key={{GMapsAPIKEY}}&callback=initMap" async defer>
