@@ -6,6 +6,7 @@ var pool = sql.createPool({
      "database"		: process.env.DB_DB,
      "user"			: process.env.DB_USER,
      "password"		: process.env.DB_PASS,
+     "multipleStatements" : true
 });
 
 module.exports = pool;

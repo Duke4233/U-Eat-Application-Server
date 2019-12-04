@@ -19,6 +19,7 @@
             <div class="tab-content" id="restaurantTabsContent">
                 <div class="tab-pane fade show active" id="menu" role="tabpanel" aria-labelledby="menu-tab">
                     {{#each menu_item}}
+
                         <div class="row no-gutters align-items-center bg-light menu-item-card" style="margin-bottom: 10px">
                             <div class="col-4">
                                 <img class="card-img menu-item-image" src="{{#if imageURL}}{{imageURL}}{{else}}/images/Logo.png{{/if}}" alt="...">
@@ -42,9 +43,9 @@
                         <div class="row no-gutters bg-light" style="margin-bottom: 10px">
                             <div class="col-10">
                                 <div class="card-body">
-                                    {{review.account}}
-                                    {{review.rating}}
-                                    {{review.review}}
+                                    {{username}}
+                                    {{rating}}
+                                    {{review}}
                                 </div>
                             </div>
                         </div>

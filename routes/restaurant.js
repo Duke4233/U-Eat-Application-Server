@@ -10,8 +10,7 @@ router.get('/:resid', function(req, res, next)
 	{
 		db.query("SELECT restaurant.name AS resname, menu_item.imageURL, menu_item.name, menu_item.price, NULL AS username, NULL AS rating, NULL AS review " +
 			"FROM restaurant INNER JOIN menu_item ON restaurant.id = menu_item.restaurant_id " +
-			"WHERE restaurant.id = ? " +
-			"UNION " +
+			"WHERE restaurant.id = ?;" +
 			"SELECT restaurant.name AS resname, NULL AS imageURL, NULL AS name, NULL AS price,account.username, review.rating, review.review " +
 			"FROM restaurant JOIN review on restaurant.id = review.restaurant_id JOIN account on account.id = review.account_id " +
 			"WHERE restaurant.id = ?",
@@ -29,7 +28,8 @@ router.get('/:resid', function(req, res, next)
 						loggedin: req.session.loggedin,
 						username: req.session.username,
 						userid: req.session.userid,
-						menu_item: results
+						menu_item: results[0],
+						review: results[1]
 					});
 			}
 		});
