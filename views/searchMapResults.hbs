@@ -10,8 +10,8 @@
                 <div class="card search-card">
                     <a href="/restaurant/{{id}}" class="restaurant-label"><h4>{{name}}</h4></a>
                     <p>{{street1}}, {{city}}, {{state}}, {{zip}}</p>
-                    <p id="latitude" style="display: none">{{lat}}</p>
-                    <p id="longitude" style="display: none">{{lng}}</p>
+                    <p id="latitude{{id}}" style="display: none">{{lat}}</p>
+                    <p id="longitude{{id}}" style="display: none">{{lng}}</p>
                 </div>
             </div>
         {{/each}}
@@ -23,27 +23,36 @@
 
 <script>
     // Initialize and add the map
-    var lat = $("#latitude").text();
-    var lng = $("#longitude").text();
+    var lat = {{restaurant.0.lat}};
+    var lng = {{restaurant.0.lng}};
     console.log(lat, lng);
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: parseFloat(lat), lng: parseFloat(lng)},
             zoom: 15
         });
-        var marker = new google.maps.Marker({
-           position: {lat: parseFloat(lat), lng: parseFloat(lng)},
+
+        {{#each restaurant}}
+            lat = parseFloat({{lat}});
+            lng = parseFloat({{lng}});
+        console.log(lat, lng);
+        var marker{{id}} = new google.maps.Marker({
+           position: {lat: lat, lng: lng},
             map: map,
-            title: 'The Restaurant',
+            title: '{{name}}',
         });
 
-        var contentstring = '<div><h3>We should put a link here.</h3></div>';
-        var infowindow = new google.maps.InfoWindow({
-            content: contentstring
-        });
-        marker.addListener('click', function () {
-           infowindow.open(map, marker);
-        });
+            var contentstring{{id}} = '<div><a href="/restaurant/{{id}}" class="restaurant-label"><h4>{{name}}</h4></a><p>{{street1}}, {{city}}, {{state}}, {{zip}}</p></div>';
+            var infowindow{{id}} = new google.maps.InfoWindow({
+                content: contentstring{{id}}
+            });
+            marker{{id}}.addListener('click', function () {
+                infowindow{{id}}.open(map, marker{{id}});
+            });
+
+        {{/each}}
+
+
     }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key={{GMapsAPIKEY}}&callback=initMap" async defer>
