@@ -46,7 +46,7 @@
             var infowindow{{name}} = new google.maps.InfoWindow({
                 content: contentstring{{id}}
             });
-            marker{{name}}.addListener('click', function () {
+            marker{{name}}.addListener('onmouseover', function () {
                 infowindow{{name}}.open(map, marker{{name}});
             });
 
