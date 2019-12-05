@@ -1,0 +1,32 @@
+<div class="container order-status">
+    <div class="row search-card">
+        <div class="col-sm-10 mx-auto">
+            <div class="card search-card text-center">
+                <h3>Current Order #{{reservationID}}</h3>
+            </div>
+        </div>
+
+        {{#each reservation_item}}
+            <div class="row no-gutters align-items-center bg-light" style="margin-bottom: 10px">
+                    <div class="col-4">
+                        <img class="card-img menu-item-image" src="{{#if imageURL}}{{imageURL}}{{else}}/images/Logo.png{{/if}}" alt="...">
+                    </div>
+                    <div class="col-6">
+                        <div class="card-body">
+                            <h3 class="card-title">{{name}}</h3>
+                            <h3>${{price}}</h3>
+                        </div>
+                    </div>
+
+                <div class="col-4">
+                    <div class="card-body">
+                        <h3>{{quantity}}
+                    </div>
+                </div>
+            </div>
+            <div class"row no-gutters align-item-right bg-light" style="margin-bottom: 10px">
+            <h3>Order total: ${{order_Total}}</h3>
+            </div>
+        {{/each}}
+    </div>
+</div>
